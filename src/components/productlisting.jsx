@@ -10,7 +10,7 @@ const ProductListing = () => {
       {!!productArray.length &&
         productArray.map((product) => <ProductCard product={product} />)}
       {productArray.length === 0 && (
-        <div className="text-2xl font-bold">No products found</div>
+        <div className="text-2xl font-bold dark:text-white">No products found</div>
       )}
     </div>
   );
