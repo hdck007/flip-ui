@@ -16,6 +16,16 @@ const FilterComponent = ({}) => {
   });
   const { setProductArray } = useContext(ProductContext);
 
+  const handleClear = () => {
+    setFilters({
+      price: [0, 100],
+      gender: [],
+      brand: [],
+      size: [],
+    });
+    setProductArray(products);
+  };
+
   const handleChange = useCallback(
     (field) => (item) => (param) => {
       if (field !== "price") {
@@ -75,13 +85,20 @@ const FilterComponent = ({}) => {
         handleChange={handleChange}
         title="Gender"
         data={gender}
+        filters={filters}
       />
       <BlockComponent
         handleChange={handleChange}
         title="Brand"
         data={brandsList}
+        filters={filters}
       />
-      <BlockComponent handleChange={handleChange} title="Size" data={sizes} />
+      <BlockComponent
+        handleChange={handleChange}
+        filters={filters}
+        title="Size"
+        data={sizes}
+      />
       <div className="m-4">
         <h3 className="text-lg">Price</h3>
         <div className="my-2 flex items-center">
@@ -97,6 +114,12 @@ const FilterComponent = ({}) => {
           {filters.price[1]}
         </div>
       </div>
+      <button
+        onClick={handleClear}
+        className="bg-blue-500 text-white px-4 m-4 py-2 rounded-md"
+      >
+        Clear filters
+      </button>
     </div>
   );
 };
