@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "./App.css";
+import Captcha from "./components/captcha";
+import Button from "./components/togglebtn";
+import Layout from "./components/layout";
+import ProductListing from "./components/productlisting";
+import products from "./utils/data";
+import { ProductProvider } from "./contexts/product-context";
+import { SidebarProvider } from "./contexts/sidebar-context";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ProductProvider>
+        <SidebarProvider>
+          <Layout>
+            <ProductListing products={products} />
+          </Layout>
+        </SidebarProvider>
+      </ProductProvider>
     </div>
   );
 }
