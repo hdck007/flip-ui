@@ -1,7 +1,7 @@
 const ProductCard = ({ product }) => {
   return (
-    <div className="w-[30%] min-w-[280px] border h-96 rounded-md hover:shadow-xl transition-all">
-      <div className="h-2/3 bg-red-100">
+    <div className="w-[30%] dark:text-white min-w-[280px] border dark:border-stone-700 h-96 rounded-md hover:shadow-xl transition-all">
+      <div className="h-2/3">
         <img
           src={product.src}
           alt={product.name}
